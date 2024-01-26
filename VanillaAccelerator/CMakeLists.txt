@@ -2,6 +2,7 @@ project(VanillaAccelerator)
 
 set(SRC_FILES
     src/VanillaAccelerator.cpp
+    src/Plugin.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})

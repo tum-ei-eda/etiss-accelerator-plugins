@@ -2,6 +2,7 @@ project(QVanillaAcceleratorT)
 
 set(SRC_FILES
     src/QVanillaAcceleratorT.cpp
+    src/Plugin.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
