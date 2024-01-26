@@ -1,4 +1,4 @@
-#define ETISS_LIBNAME RiscvTestsPlugins
+#define ETISS_LIBNAME QVanillaAcceleratorT
 
 #include "etiss/helper/CPUArchLibrary.h"
 #include "etiss/helper/JITLibrary.h"
@@ -17,17 +17,17 @@ extern "C"
     // implement version function
     ETISS_LIBRARYIF_VERSION_FUNC_IMPL
 
-    unsigned RiscvTestsPlugins_countJIT() { return 0; }
+    unsigned QVanillaAcceleratorT_countJIT() { return 0; }
 
-    unsigned RiscvTestsPlugins_countCPUArch() { return 0; }
+    unsigned QVanillaAcceleratorT_countCPUArch() { return 0; }
 
-    unsigned RiscvTestsPlugins_countPlugin() { return 1; }
+    unsigned QVanillaAcceleratorT_countPlugin() { return 1; }
 
-    const char *RiscvTestsPlugins_nameJIT(unsigned index) { return 0; }
+    const char *QVanillaAcceleratorT_nameJIT(unsigned index) { return 0; }
 
-    const char *RiscvTestsPlugins_nameCPUArch(unsigned index) { return 0; }
+    const char *QVanillaAcceleratorT_nameCPUArch(unsigned index) { return 0; }
 
-    const char *RiscvTestsPlugins_namePlugin(unsigned index)
+    const char *QVanillaAcceleratorT_namePlugin(unsigned index)
     {
         switch (index)
         {
@@ -37,14 +37,14 @@ extern "C"
         return 0;
     }
 
-    etiss::JIT *RiscvTestsPlugins_createJIT(unsigned index, std::map<std::string, std::string> options) { return 0; }
+    etiss::JIT *QVanillaAcceleratorT_createJIT(unsigned index, std::map<std::string, std::string> options) { return 0; }
 
-    etiss::CPUArch *RiscvTestsPlugins_createCPUArch(unsigned index, std::map<std::string, std::string> options)
+    etiss::CPUArch *QVanillaAcceleratorT_createCPUArch(unsigned index, std::map<std::string, std::string> options)
     {
         return 0;
     }
 
-    etiss::Plugin *RiscvTestsPlugins_createPlugin(unsigned index, std::map<std::string, std::string> options)
+    etiss::Plugin *QVanillaAcceleratorT_createPlugin(unsigned index, std::map<std::string, std::string> options)
     {
         switch (index)
         {
@@ -53,21 +53,21 @@ extern "C"
             etiss::Configuration cfg;
                 cfg.config() = options;
                 return new etiss::plugin::QVanillaAcceleratorT(cfg.get<uint64_t>("plugin.QVanillaAcceleratorT.baseaddr", 0x70002000));
-                
+
         }
         }
         return 0;
     }
 
-    void RiscvTestsPlugins_deleteJIT(etiss::JIT *o) { delete o; }
+    void QVanillaAcceleratorT_deleteJIT(etiss::JIT *o) { delete o; }
 
-    void RiscvTestsPlugins_deleteCPUArch(etiss::CPUArch *o) { delete o; }
+    void QVanillaAcceleratorT_deleteCPUArch(etiss::CPUArch *o) { delete o; }
 
-    void RiscvTestsPlugins_deletePlugin(etiss::Plugin *o) { delete o; }
+    void QVanillaAcceleratorT_deletePlugin(etiss::Plugin *o) { delete o; }
 }
 
 // not part of the example implementation
 unsigned etiss::LibraryInterface::getCurrentLibraryVersion()
 {
-    return RiscvTestsPlugins_etissversion();
+    return QVanillaAcceleratorT_etissversion();
 }
