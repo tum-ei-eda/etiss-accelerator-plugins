@@ -1,5 +1,7 @@
 project(QVanillaAccelerator)
 
+find_package(ETISS)
+
 set(SRC_FILES
     src/QVanillaAccelerator.cpp
     src/Plugin.cpp

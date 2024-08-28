@@ -1,5 +1,7 @@
 project(VanillaAccelerator)
 
+find_package(ETISS)
+
 set(SRC_FILES
     src/VanillaAccelerator.cpp
     src/Plugin.cpp
