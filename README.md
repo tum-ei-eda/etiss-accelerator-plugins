@@ -49,7 +49,7 @@ etiss_wd=/path/to/temp
 /path/to/etiss/install/etiss/bin/run_helper.sh /path/to/program -p QVanillaAcceleratorT -icustom.ini
 ```
 
-**Hint:** Steps 1.-3. can be skipped if executing ETISS in the same path where the `PluginImpl` drectory is located. This yields to this more simple procedure:
+**Hint:** Steps 1.-3. can be skipped if executing ETISS in the same path where the `PluginImpl` directory is located. This yields to this more simple procedure:
 
 ```sh
 mkdir ./PluginImpl
